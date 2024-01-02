@@ -1,16 +1,14 @@
-package mrandroid.medicine.medicinereminder.main;
+package mrandroid.medicine.medicinereminder.activity;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import mrandroid.medicine.medicinereminder.R;
 
-public class AddMedicineActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_medicine);
+        setContentView(R.layout.activity_home);
     }
 }

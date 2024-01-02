@@ -1,4 +1,4 @@
-package mrandroid.medicine.medicinereminder.authentication;
+package mrandroid.medicine.medicinereminder.activity;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import mrandroid.medicine.medicinereminder.R;
 import mrandroid.medicine.medicinereminder.util.NotificationHelper;
 import mrandroid.medicine.medicinereminder.util.TimePickerFragment;
 
-public class SplashActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
+public class AddMedicineActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     private NotificationHelper notificationHelper;
     private Button btn_notification;
@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity implements TimePickerDialo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_add_medicine);
 
         notificationHelper = new NotificationHelper(this);
         notificationHelper.checkNotificationPermission(this);
@@ -37,7 +37,6 @@ public class SplashActivity extends AppCompatActivity implements TimePickerDialo
             DialogFragment timePicker = new TimePickerFragment();
             timePicker.show(getSupportFragmentManager(), "timePicker");
         });
-
     }
 
     @Override

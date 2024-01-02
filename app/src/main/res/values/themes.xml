@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/selector_text_input_box</item>
+        <item name="boxStrokeWidth">@dimen/_1sdp</item>
+        <item name="hintTextColor">@color/selector_text_input_box</item>
+    </style>
 </resources>
