@@ -1,8 +1,8 @@
-package mrandroid.medicine.medicinereminder.util;
+package mrandroid.medicinereminder.util;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import mrandroid.medicine.medicinereminder.R;
+import mrandroid.medicinereminder.R;
 
 public class LoadingDialog {
 

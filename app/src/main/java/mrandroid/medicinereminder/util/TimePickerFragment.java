@@ -1,4 +1,4 @@
-package mrandroid.medicine.medicinereminder.util;
+package mrandroid.medicinereminder.util;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;

@@ -1,4 +1,4 @@
-package mrandroid.medicine.medicinereminder.util;
+package mrandroid.medicinereminder.util;
 
 import android.Manifest;
 import android.app.Notification;
@@ -15,7 +15,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import java.util.Random;
 
-import mrandroid.medicine.medicinereminder.R;
+import mrandroid.medicinereminder.R;
 
 public class NotificationHelper extends ContextWrapper {
 

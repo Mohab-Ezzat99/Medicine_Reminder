@@ -1,4 +1,4 @@
-package mrandroid.medicine.medicinereminder.activity;
+package mrandroid.medicinereminder.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import mrandroid.medicine.medicinereminder.R;
-import mrandroid.medicine.medicinereminder.databinding.ActivityLoginBinding;
-import mrandroid.medicine.medicinereminder.util.LoadingDialog;
+import mrandroid.medicinereminder.databinding.ActivityLoginBinding;
+import mrandroid.medicinereminder.util.LoadingDialog;
 
 public class LoginActivity extends AppCompatActivity {
 

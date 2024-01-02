@@ -1,13 +1,14 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'mrandroid.medicine.medicinereminder'
+    namespace 'mrandroid.medicinereminder'
     compileSdk 34
 
     defaultConfig {
-        applicationId "mrandroid.medicine.medicinereminder"
+        applicationId "mrandroid.medicinereminder"
         minSdk 24
         targetSdk 34
         versionCode 1

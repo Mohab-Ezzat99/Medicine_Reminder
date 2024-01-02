@@ -1,4 +1,4 @@
-package mrandroid.medicine.medicinereminder;
+package mrandroid.medicinereminder;
 
 import org.junit.Test;
 

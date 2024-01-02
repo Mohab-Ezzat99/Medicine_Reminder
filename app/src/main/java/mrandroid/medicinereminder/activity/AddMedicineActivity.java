@@ -1,4 +1,4 @@
-package mrandroid.medicine.medicinereminder.activity;
+package mrandroid.medicinereminder.activity;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.TimePicker;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
-import mrandroid.medicine.medicinereminder.R;
-import mrandroid.medicine.medicinereminder.util.NotificationHelper;
-import mrandroid.medicine.medicinereminder.util.TimePickerFragment;
+import mrandroid.medicinereminder.R;
+import mrandroid.medicinereminder.util.NotificationHelper;
+import mrandroid.medicinereminder.util.TimePickerFragment;
 
 public class AddMedicineActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 

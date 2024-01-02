@@ -1,11 +1,11 @@
-package mrandroid.medicine.medicinereminder.activity;
+package mrandroid.medicinereminder.activity;
 
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import mrandroid.medicine.medicinereminder.databinding.ActivityRegisterBinding;
-import mrandroid.medicine.medicinereminder.util.LoadingDialog;
+import mrandroid.medicinereminder.databinding.ActivityRegisterBinding;
+import mrandroid.medicinereminder.util.LoadingDialog;
 
 public class RegisterActivity extends AppCompatActivity {
 

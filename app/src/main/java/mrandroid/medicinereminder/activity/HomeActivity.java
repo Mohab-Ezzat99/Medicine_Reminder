@@ -1,8 +1,8 @@
-package mrandroid.medicine.medicinereminder.activity;
+package mrandroid.medicinereminder.activity;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import mrandroid.medicine.medicinereminder.R;
+import mrandroid.medicinereminder.R;
 
 public class HomeActivity extends AppCompatActivity {
 
