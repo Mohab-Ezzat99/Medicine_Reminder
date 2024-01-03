@@ -18,11 +18,6 @@
         <activity
             android:name="mrandroid.medicinereminder.activity.SplashActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="mrandroid.medicinereminder.activity.RegisterActivity"
@@ -42,6 +37,7 @@
         <activity
             android:name="mrandroid.medicinereminder.activity.AddMedicineActivity"
             android:exported="false" />
+        <receiver android:name=".util.AlarmReceiver"/>
     </application>
 
 </manifest>
