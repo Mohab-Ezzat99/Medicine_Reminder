@@ -125,6 +125,8 @@ public class AddMedicineActivity extends AppCompatActivity implements TimePicker
     private void startAlarm(Calendar calendar) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("Name",medicineModel.getName());
+        intent.putExtra("Description",medicineModel.getDescription());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, medicineModel.getRequest(), intent, PendingIntent.FLAG_IMMUTABLE);
 
         if (calendar.before(Calendar.getInstance())) {
