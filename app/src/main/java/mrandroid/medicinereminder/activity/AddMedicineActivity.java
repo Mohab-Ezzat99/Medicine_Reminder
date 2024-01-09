@@ -82,13 +82,16 @@ public class AddMedicineActivity extends AppCompatActivity implements TimePicker
 
     private void saveMedicine() {
         // get values from screen
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String name = binding.etName.getText().toString().trim();
         String description = binding.etDescription.getText().toString().trim();
-        String phone = binding.etDescription.getText().toString().trim();
+        String phone = binding.etPhone.getText().toString().trim();
+
+        // set server
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference serverRef = FirebaseDatabase.getInstance().getReference().child(userId);
 
         // set values
-        medicineModel.setUserId(userId);
+        medicineModel.setId(serverRef.push().getKey());
         medicineModel.setName(name);
         medicineModel.setDescription(description);
         medicineModel.setPhone(phone);
@@ -96,9 +99,7 @@ public class AddMedicineActivity extends AppCompatActivity implements TimePicker
 
         // save values to server
         loadingDialog.display();
-        FirebaseDatabase.getInstance().getReference()
-                .child("users")
-                .child(userId).setValue(medicineModel).addOnCompleteListener(task -> {
+        serverRef.child(medicineModel.getId()).setValue(medicineModel).addOnCompleteListener(task -> {
                     loadingDialog.dismiss();
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
@@ -131,14 +132,5 @@ public class AddMedicineActivity extends AppCompatActivity implements TimePicker
         }
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-    }
-
-    private void cancelAlarm() {
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, medicineModel.getRequest(), intent, PendingIntent.FLAG_IMMUTABLE);
-
-        alarmManager.cancel(pendingIntent);
-        Toast.makeText(this, "Alarm cancelled", Toast.LENGTH_SHORT).show();
     }
 }

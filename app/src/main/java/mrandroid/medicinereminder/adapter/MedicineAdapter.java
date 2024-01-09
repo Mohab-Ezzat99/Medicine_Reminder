@@ -54,6 +54,12 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         this.notifyDataSetChanged();
     }
 
+    public void deleteItem(MedicineModel medicineModel) {
+        int position = this.list.indexOf(medicineModel);
+        this.list.remove(medicineModel);
+        this.notifyItemRemoved(position);
+    }
+
     public void setListener(OnItemClickListener listener) {
         this.listener = listener;
     }
@@ -78,6 +84,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
     public interface OnItemClickListener {
         void onItemDelete(MedicineModel model);
+
         void onItemCall(MedicineModel model);
     }
 }
