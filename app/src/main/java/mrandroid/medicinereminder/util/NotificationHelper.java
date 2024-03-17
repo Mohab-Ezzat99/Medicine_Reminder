@@ -7,12 +7,16 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
+import android.media.AudioAttributes;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+
 import java.util.Random;
 
 import mrandroid.medicinereminder.R;
@@ -32,11 +36,16 @@ public class NotificationHelper extends ContextWrapper {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void createChannels() {
+        Uri soundNewTrip = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.alarm);
+        AudioAttributes soundAttributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                .build();
+
         NotificationChannel channel1 = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_DEFAULT);
         channel1.enableLights(true);
         channel1.enableVibration(true);
-        channel1.setLightColor(com.google.android.material.R.color.design_default_color_primary);
         channel1.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        channel1.setSound(soundNewTrip, soundAttributes);
         getNotificationManager().createNotificationChannel(channel1);
     }
 
@@ -55,12 +64,14 @@ public class NotificationHelper extends ContextWrapper {
     }
 
     public void displayNotification(String title, String message) {
+        Uri soundNewTrip = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.alarm);
+
         Notification notification = new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setSmallIcon(R.drawable.ic_alarm)
                 .setChannelId(channelID)
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setSound(soundNewTrip)
                 .build();
 
         int id = new Random().nextInt();
