@@ -27,17 +27,20 @@ import mrandroid.medicinereminder.adapter.MedicineAdapter;
 import mrandroid.medicinereminder.databinding.ActivityHomeBinding;
 import mrandroid.medicinereminder.model.MedicineModel;
 import mrandroid.medicinereminder.util.AlarmReceiver;
+import mrandroid.medicinereminder.util.UserSession;
 
 public class HomeActivity extends AppCompatActivity implements MedicineAdapter.OnItemClickListener {
 
     private ActivityHomeBinding binding;
     private MedicineAdapter medicineAdapter = new MedicineAdapter();
+    private UserSession session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        session = new UserSession(this);
 
         medicineAdapter.setListener(this);
         binding.rvMedicines.setAdapter(medicineAdapter);
@@ -45,6 +48,12 @@ public class HomeActivity extends AppCompatActivity implements MedicineAdapter.O
 
         binding.fabAdd.setOnClickListener(view -> {
             startActivity(new Intent(getBaseContext(), AddMedicineActivity.class));
+        });
+
+        binding.fabLogout.setOnClickListener(view -> {
+            session.setLogin(false);
+            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            finish();
         });
     }
 

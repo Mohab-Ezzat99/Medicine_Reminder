@@ -10,11 +10,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import mrandroid.medicinereminder.databinding.ActivityLoginBinding;
 import mrandroid.medicinereminder.util.LoadingDialog;
+import mrandroid.medicinereminder.util.UserSession;
 
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private LoadingDialog loadingDialog;
+    private UserSession session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,12 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         loadingDialog = new LoadingDialog(this);
+        session = new UserSession(this);
+
+        if (session.isLogin()) {
+            startActivity(new Intent(getBaseContext(), HomeActivity.class));
+            finish();
+        }
 
         binding.btnLogin.setOnClickListener(view -> {
             boolean isValid = checkValidation();
@@ -58,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         loadingDialog.dismiss();
                         Toast.makeText(getBaseContext(), "Welcome! Login Successfully", Toast.LENGTH_LONG).show();
+                        session.setLogin(true);
                         startActivity(new Intent(getBaseContext(), HomeActivity.class));
                         finish();
                     } else {
