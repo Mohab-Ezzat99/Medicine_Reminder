@@ -36,7 +36,7 @@ public class NotificationHelper extends ContextWrapper {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void createChannels() {
-        Uri soundNewTrip = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.alarm);
+        Uri soundMedicine = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.alarm);
         AudioAttributes soundAttributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_NOTIFICATION)
                 .build();
@@ -45,7 +45,7 @@ public class NotificationHelper extends ContextWrapper {
         channel1.enableLights(true);
         channel1.enableVibration(true);
         channel1.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-        channel1.setSound(soundNewTrip, soundAttributes);
+        channel1.setSound(soundMedicine, soundAttributes);
         getNotificationManager().createNotificationChannel(channel1);
     }
 
@@ -64,14 +64,14 @@ public class NotificationHelper extends ContextWrapper {
     }
 
     public void displayNotification(String title, String message) {
-        Uri soundNewTrip = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.alarm);
+        Uri soundMedicine = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.alarm);
 
         Notification notification = new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setSmallIcon(R.drawable.ic_alarm)
                 .setChannelId(channelID)
-                .setSound(soundNewTrip)
+                .setSound(soundMedicine)
                 .build();
 
         int id = new Random().nextInt();

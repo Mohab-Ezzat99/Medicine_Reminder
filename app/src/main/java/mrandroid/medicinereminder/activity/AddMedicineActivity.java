@@ -1,5 +1,6 @@
 package mrandroid.medicinereminder.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -122,6 +123,7 @@ public class AddMedicineActivity extends AppCompatActivity implements TimePicker
         binding.tvTimeValue.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime()));
     }
 
+    @SuppressLint("ScheduleExactAlarm")
     private void startAlarm(Calendar calendar) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);

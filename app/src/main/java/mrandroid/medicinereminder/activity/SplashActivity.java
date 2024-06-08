@@ -24,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         FirebaseApp.initializeApp(getApplicationContext());
+
         Animation anim_left = AnimationUtils.loadAnimation(getBaseContext(), R.anim.anim_left);
         binding.ivLogo.setAnimation(anim_left);
         binding.tvDesc.setAnimation(anim_left);
@@ -31,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             startActivity(new Intent(getBaseContext(), LoginActivity.class));
             finish();
-        }, 1800);
+        }, 2000);
 
     }
 }
